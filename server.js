@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 //Path
 require(path.join(__dirname, './app/routing/apiRoutes'))(app);
-require(path.join(__dirname, './app/routing/htmlRoute'))(app);
+require(path.join(__dirname, './app/routing/htmlRoutes'))(app);
 
 
 //  Listener

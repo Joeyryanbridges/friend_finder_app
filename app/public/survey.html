@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>FriendFinder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>90's Friend Finder</title>
 
-    <!-- Latest compiled and minified CSS & JS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
+    <!-- Bootstrap and JQuery-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
 </head>
 
 <body>
@@ -19,19 +19,20 @@
 
             <h2>Survey Questions</h2>
             <hr>
-
             <h3>
                 <strong>About You</strong>
             </h3>
             <h4>Name (Required)</h4>
-            <input type="text" id="name" class="form-control" required>
 
+            <input type="text" id="name" placeholder="Joey Ryan Bridges (Click to add your name)" class="form-control" required>
+            <br>
             <h4>Link to Photo Image (Required)</h4>
-            <input type="text" id="photo" class="form-control" required>
 
+            <input type="text" id="photo" placeholder="www.photohere.com/joey" class="form-control" required>
             <hr>
 
             <h3>
+                <br>
                 <strong>Question 1</strong>
             </h3>
             <h4>Do you like to party?</h4>
@@ -43,8 +44,9 @@
                 <option value="4">4</option>
                 <option value="5">5 (Strongly Agree)</option>
             </select>
-
+            <br>
             <h3>
+                <br>
                 <strong>Question 2</strong>
             </h3>
             <h4>When you go out to have a good time, do you find it better when you're with a group of friends?.</h4>
@@ -57,8 +59,8 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select>
 
-
             <h3>
+                <br>
                 <strong>Question 3</strong>
             </h3>
             <h4>Are you an artsy type?</h4>
@@ -70,9 +72,11 @@
                 <option value="4">4</option>
                 <option value="5">5 (Strongly Agree)</option>
             </select>
+            <br>
 
 
             <h3>
+                <br>
                 <strong>Question 4</strong>
             </h3>
             <h4>If you were in a food fight, would you speak up and try to stop it?</h4>
@@ -87,6 +91,7 @@
 
 
             <h3>
+                <br>
                 <strong>Question 5</strong>
             </h3>
             <h4>Are you one to enjoy time with family?</h4>
@@ -101,6 +106,7 @@
 
 
             <h3>
+                <br>
                 <strong>Question 6</strong>
             </h3>
             <h4>It's your best friends birthday, do you get them a gift?</h4>
@@ -115,6 +121,7 @@
 
 
             <h3>
+                <br>
                 <strong>Question 7</strong>
             </h3>
             <h4>Movie night is always better with horror?</h4>
@@ -128,6 +135,7 @@
             </select>
 
             <h3>
+                <br>
                 <strong>Question 8</strong>
             </h3>
             <h4>You're at a concert and someone drops their wallet, do you return it?</h4>
@@ -141,6 +149,7 @@
             </select>
 
             <h3>
+                <br>
                 <strong>Question 9</strong>
             </h3>
             <h4>Pop rocks are the jam?</h4>
@@ -154,6 +163,7 @@
             </select>
 
             <h3>
+                <br>
                 <strong>Question 10</strong>
             </h3>
             <h4>Puppy breath is close to being considered a godly aroma?</h4>
@@ -166,13 +176,9 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select>
 
-            <br>
-            <br>
 
             <!-- Submit Button -->
-            <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit" data-toggle="modal" target="#results-modal">
-                <i class="fas fa-hand-point-right" aria-hidden="true"></i>
-                Submit</button>
+            <button type="submit" class="btn btn-outline-warning" id="submit" data-toggle="modal" target="#results-modal">Submit</button>
 
             <hr>
             <footer class="footer">
@@ -210,56 +216,111 @@
 
         </div>
     </div>
+</body>
+<style>
+    body {
+        background-color: black;
+    }
 
-    <script type="text/javascript">
+    .jumbotron {
+        padding: 2.5rem 2rem;
+        background-color: black;
+        position: inherit;
+    }
 
-        // Capture the form inputs
-        $("#submit").on("click", function (event) {
-            event.preventDefault();
-            // Form validation
-            function validateForm() {
-                var isValid = true;
-                $(".form-control").each(function () {
-                    if ($(this).val() === "") {
-                        isValid = false;
-                    }
-                });
-                $(".question-select").each(function () {
-                    if ($(this).val() === "") {
-                        isValid = false;
-                    }
-                });
-                return isValid;
-            }
-            // If all required fields are filled
-            if (validateForm()) {
-                // Create an object for the user"s data
-                var userData = {
-                    name: $("#name").val(),
-                    photo: $("#photo").val(),
-                    scores: [
-                        $("#q1").val(),
-                        $("#q2").val(),
-                        $("#q3").val(),
-                        $("#q4").val(),
-                        $("#q5").val(),
-                        $("#q6").val(),
-                        $("#q7").val(),
-                        $("#q8").val(),
-                        $("#q9").val(),
-                        $("#q10").val()
-                    ]
-                };
-                // AJAX post the data to the friends API.
-                $.post("api/friends", userData, function (data) {
-                    // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-                    $("#match-name").text(data.name);
-                    $("#match-img").attr("src", data.photo);
-                    // Show the modal with the best match
-                    $("#results-modal").modal();
-                });
-            } else {
-                alert("Please fill out all fields before submitting!");
-            }
-        });
-    </script>
+    h2 {
+        color: Yellow;
+        font-family: 'VT323', monospace;
+    }
+
+    h3 {
+        color: red;
+        font-family: 'VT323', monospace;
+    }
+
+    h4 {
+        color: white;
+        font-family: 'VT323', monospace;
+    }
+
+    h5 {
+        color: white;
+        font-family: 'VT323', monospace;
+    }
+
+    h6 {
+        color: white;
+        font-family: 'VT323', monospace;
+    }
+
+    .friendImage {
+        border-radius: 10px;
+    }
+
+    .surveyBtn {
+        border-radius: 25px;
+        margin-top: 5px;
+    }
+
+    .githubBtn {
+        border-radius: 25px;
+        margin-top: 5px;
+    }
+
+    .apiBtn {
+        border-radius: 25px;
+        margin-top: 5px;
+    }
+</style>
+<script type="text/javascript">
+
+    // Capture the form inputs
+    $("#submit").on("click", function (event) {
+        event.preventDefault();
+        // Form validation
+        function validateForm() {
+            var isValid = true;
+            $(".form-control").each(function () {
+                if ($(this).val() === "") {
+                    isValid = false;
+                }
+            });
+            $(".question-select").each(function () {
+                if ($(this).val() === "") {
+                    isValid = false;
+                }
+            });
+            return isValid;
+        }
+        // If all required fields are filled
+        if (validateForm()) {
+            // Create an object for the user"s data
+            var usersData = {
+                name: $("#name").val(),
+                photo: $("#photo").val(),
+                scores: [
+                    $("#q1").val(),
+                    $("#q2").val(),
+                    $("#q3").val(),
+                    $("#q4").val(),
+                    $("#q5").val(),
+                    $("#q6").val(),
+                    $("#q7").val(),
+                    $("#q8").val(),
+                    $("#q9").val(),
+                    $("#q10").val()
+                ]
+            };
+            // AJAX post the data to the friends API.
+            $.post("api/friends", usersData, function (data) {
+                // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+                $("#match-name").text(data.name);
+                $("#match-img").attr("src", data.photo);
+                // Show the modal with the best match
+                $("#results-modal").modal();
+            });
+        } else {
+            alert("Please fill out all fields before submitting!");
+        }
+    });
+</script>

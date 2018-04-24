@@ -4,41 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Worst Enemy Finder</title>
+    <title>90's Friend Finder</title>
 
     <!-- Bootstrap and JQuery-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container">
         <div class="jumbotron">
             <center>
-                <h5>Who's your worst enemy?</h5>
+                <img src="https://media.giphy.com/media/3oEjHZoLDM9vtZC7ja/giphy.gif" class="img-fluid friendImage" style="width:40%;"
+                    "height:40%;" alt="Responsive image">
+            </center>
+            <center>
+                <h2>90's Friend Finder</h2>
             </center>
             <br>
             <center>
-                <img src="https://sg-dae.kxcdn.com/blog/wp-content/uploads/2016/04/Can-Man-and-Woman-Ever-Be-Equal.jpg" class="img-fluid friendImage"
-                    style="width:65%;" "height:65%;" alt="Responsive image">
+                <h6>Ka-Pow! Hit That Green Button To Start!</h6>
             </center>
-            <br>
-            <center>
-                <h6>Click the "Go Find" to find out.</h6>
-            </center>
-            <br>
             <center>
                 <a href="/survey">
-                    <button type="button" class="btn btn-outline-success" "survey-btn ">Go Find!</button>
+                    <button type="button" class="btn btn-sm  btn-outline-success surveyBtn">Go Find!</button>
                 </a>
             </center>
-            <br>
+            <center>
+                <a href="https://github.com/Joeyryanbridges/friendFinder">
+                    <button type="button " class="btn btn-sm btn-outline-warning githubBtn ">My Github</button>
+                </a>
+            </center>
             <center>
                 <a href="/api/friends ">
-                    <button type="button " class="btn btn-outline-warning apiBtn "> API & Friends</button>
-                </a>
-                <a href="https://github.com/Joeyryanbridges/friendFinder">
-                    <button type="button " class="btn btn-outline-warning githubBtn ">My Github</button>
+                    <button type="button " class="btn btn-sm btn-outline-warning apiBtn "> API & Friends</button>
                 </a>
             </center>
         </div>
@@ -48,25 +48,52 @@
     <!-- Bootstrap and JQuery-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 
 </body>
 <style>
-    .jumbotron {
-        padding: 5rem 2rem;
+    body {
         background-color: black;
+    }
+
+    .jumbotron {
+        padding: 2.5rem 2rem;
+        background-color: black;
+        position: inherit;
+    }
+
+    h2 {
+        color: white;
+        font-family: 'VT323', monospace;
     }
 
     h5 {
         color: white;
+        font-family: 'VT323', monospace;
     }
 
     h6 {
         color: white;
+        font-family: 'VT323', monospace;
     }
 
     .friendImage {
         border-radius: 10px;
+    }
+
+    .surveyBtn {
+        border-radius: 25px;
+        margin-top: 5px;
+    }
+
+    .githubBtn {
+        border-radius: 25px;
+        margin-top: 5px;
+    }
+
+    .apiBtn {
+        border-radius: 25px;
+        margin-top: 5px;
     }
 </style>
 
